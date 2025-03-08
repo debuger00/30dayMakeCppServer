@@ -28,5 +28,11 @@ int main()
     // 连接到服务器
     connect(sockfd, (sockaddr *)&serv_addr, sizeof(serv_addr));
 
+    // 发送测试信息给服务器
+    const char *message = "Hello, Server!";
+    send(sockfd, message, strlen(message), 0);
+
+    // 关闭socket
+    close(sockfd);
     return 0;
 }
