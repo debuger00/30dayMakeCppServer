@@ -31,6 +31,7 @@ int main()
     // 发送测试信息给服务器
     const char *message = "Hello, Server!";
     send(sockfd, message, strlen(message), 0);
+    send(sockfd, message, strlen(message), 0);
 
     // 关闭socket
     close(sockfd);

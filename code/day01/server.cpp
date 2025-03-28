@@ -47,5 +47,21 @@ int main()
     printf("new client fd %d! IP: %s Port: %d\n", clnt_sockfd, inet_ntoa(clnt_addr.sin_addr), ntohs(clnt_addr.sin_port));
     fflush(stdout); // 确保输出立即显示
 
+    // 接收客户端发送的消息
+    char buffer[1024] = {0};
+    int bytes_received = recv(clnt_sockfd, buffer, sizeof(buffer) - 1, 0);
+    if (bytes_received < 0) {
+        perror("recv failed");
+    } else {
+        buffer[bytes_received] = '\0'; // 确保字符串以空字符结尾
+        printf("Received message: %s\n", buffer);
+    }
+
+    // 关闭客户端socket
+    close(clnt_sockfd);
+
+    // 关闭服务器socket
+    close(sockfd);
+    
     return 0;
 }
