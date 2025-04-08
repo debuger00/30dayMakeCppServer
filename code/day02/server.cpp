@@ -32,7 +32,7 @@ int main()
     {
         char buf[1024];
         bzero(&buf, sizeof(buf));
-        ssize_t read_bytes = read(clnt_sockfd, buf, sizeof(buf));
+        ssize_t read_bytes = read(clnt_sockfd, buf, sizeof(buf));// 服务器 先读后写
         if (read_bytes > 0)
         {
             printf("message from client fd %d: %s\n", clnt_sockfd, buf);
