@@ -26,7 +26,7 @@ int main()
         bzero(&buf, sizeof(buf));
         // 从标准输入读取用户输入的字符串
         scanf("%s", buf);
-        // 将用户输入的数据写入socket
+        // 将用户输入的数据写入socket，标准输入
         ssize_t write_bytes = write(sockfd, buf, sizeof(buf)); //       ############################### 这里很重要 原来 scanf 除了 手工输入， 还可以 从 标准输读取数据
         // 如果写入失败,说明socket已断开连接
         if (write_bytes == -1)
