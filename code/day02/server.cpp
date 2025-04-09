@@ -6,8 +6,10 @@
 #include "util.h"
 
 int main()
-{
-    int sockfd = socket(AF_INET, SOCK_STREAM, 0);
+{ // 服务端创建了两个socket对象，第一个是用于监听连接请求，第二个是接收到的套接字描述符，用于收发数据。listen()时正式启动socket。
+
+    printf("当前进程 PID = %d\n", getpid());
+    int sockfd = socket(AF_INET, SOCK_STREAM, 0); // 第一个是用于监听连接请求，
     errif(sockfd == -1, "socket create error");
 
     struct sockaddr_in serv_addr;
@@ -24,7 +26,7 @@ int main()
     socklen_t clnt_addr_len = sizeof(clnt_addr);
     bzero(&clnt_addr, sizeof(clnt_addr));
 
-    int clnt_sockfd = accept(sockfd, (sockaddr *)&clnt_addr, &clnt_addr_len);
+    int clnt_sockfd = accept(sockfd, (sockaddr *)&clnt_addr, &clnt_addr_len); // wyh  接受连接请求， 返回新的socket套接字文件描述符 //wyh 第二个是接收到的套接字描述符，用于收发数据。listen()时正式启动socket。
     errif(clnt_sockfd == -1, "socket accept error");
 
     printf("new client fd %d! IP: %s Port: %d\n", clnt_sockfd, inet_ntoa(clnt_addr.sin_addr), ntohs(clnt_addr.sin_port));

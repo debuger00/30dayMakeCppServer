@@ -1,6 +1,21 @@
 {
     "files.associations": {
         "functional": "cpp",
-        "vector": "cpp"
+        "vector": "cpp",
+        "cctype": "cpp",
+        "clocale": "cpp",
+        "cstdarg": "cpp",
+        "cstddef": "cpp",
+        "cstdint": "cpp",
+        "cstdio": "cpp",
+        "cstdlib": "cpp",
+        "ctime": "cpp",
+        "cwchar": "cpp",
+        "cwctype": "cpp",
+        "memory_resource": "cpp",
+        "random": "cpp",
+        "utility": "cpp",
+        "new": "cpp",
+        "typeinfo": "cpp"
     }
 }

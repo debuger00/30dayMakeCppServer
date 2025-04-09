@@ -7,7 +7,9 @@
 
 int main()
 {
-    int sockfd = socket(AF_INET, SOCK_STREAM, 0); // 创建套接字
+
+    printf("当前进程 PID = %d\n", getpid());
+    int sockfd = socket(AF_INET, SOCK_STREAM, 0); // 创建客户端套接字
     errif(sockfd == -1, "socket create error");
 
     struct sockaddr_in serv_addr; // 创建 套接字 结构体 struct sockaddr_in
