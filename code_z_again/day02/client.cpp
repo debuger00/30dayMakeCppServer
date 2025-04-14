@@ -20,25 +20,9 @@ int main()
         char buf[1024];
         memset(buf, 0, sizeof(buf));
         scanf("%s", buf);
-
-        ssize_t write_bit = write(client_fd, buf, sizeof(buf));
-        if (write_bit <= 0)
-        {
-            printf("发送数据失败\n");
-            break;
-        }
-
+        write(client_fd, buf, sizeof(buf));
         memset(buf, 0, sizeof(buf));
-        ssize_t read_bit = read(client_fd, buf, sizeof(buf));
-        if (read_bit <= 0)
-        {
-            printf("接收数据失败或服务器已断开连接\n");
-            break;
-        }
-
-        printf("服务器响应： %s\n", buf);
+        read(client_fd, buf, sizeof(buf));
+        printf("服务器响应： %s \n", buf);
     }
-
-    // 关闭socket
-    close(client_fd);
 };
